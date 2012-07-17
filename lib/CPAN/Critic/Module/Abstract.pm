@@ -118,10 +118,10 @@ declare_policy
     code => sub {
         my %args = @_;
         my $ab = $args{abstract};
-        if ($ab =~ /^Perl extension for blah blah blah/i) {
-            [409, "Template from h2xs"];
-        } elsif ($ab =~ /^The great new \w+(::\w+)*/i) {
-            [409, "Template from module-starter"];
+        if ($ab =~ /^(Perl extension for blah blah blah)/i) {
+            [409, "Template from h2xs '$1'"];
+        } elsif ($ab =~ /^(The great new )\w+(::\w+)*/i) {
+            [409, "Template from module-starter '$1'"];
         } else {
             [200];
         }
