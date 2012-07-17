@@ -219,6 +219,20 @@ declare_policy
         }
     };
 
+declare_policy
+    name => 'prohibit_just_module_name',
+    severity => 2,
+    args => {},
+    code => sub {
+        my %args = @_;
+        my $ab = $args{abstract};
+        if ($ab =~ /^\w+(::\w+)+$/) {
+            [409, "Should not just be a module name"];
+        } else {
+            [200];
+        }
+    };
+
 # policy: don't repeat module name
 # policy: should be verb + ...
 
