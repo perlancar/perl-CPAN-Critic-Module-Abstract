@@ -11,7 +11,7 @@ use Perinci::Sub::dep::pm;
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(
-                       critic_cpan_module_abstract
+                       critique_cpan_module_abstract
                        declare_policy
                );
 
@@ -246,7 +246,7 @@ for (keys %{ { list_package_contents(__PACKAGE__) } }) {
 $PROFILES{default} = $PROFILES{all};
 # XXX default: 4/5 if length > 100?
 
-$SPEC{critic_cpan_module_abstract} = {
+$SPEC{critique_cpan_module_abstract} = {
     v => 1.1,
     args => {
         abstract => {
@@ -259,7 +259,7 @@ $SPEC{critic_cpan_module_abstract} = {
         },
     },
 };
-sub critic_cpan_module_abstract {
+sub critique_cpan_module_abstract {
     my %args = @_;
     my $abstract = $args{abstract} // "";
     my $profile  = $args{profile} // "default";
