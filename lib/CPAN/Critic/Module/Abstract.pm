@@ -165,7 +165,8 @@ declare_policy
         my %args = @_;
         my $ab = $args{abstract};
         if ($ab =~ /^( (?: (?:a|the) \s+)?
-                        (?: perl\s?[56]? \s+)? (?:extension|module|library)
+                        (?: perl\s?[56]? \s+)?
+                        (?:extension|module|library|interface|xs \s binding)
                         (?: \s+ (?:to|for))?
                     )/xi) {
             [409, "Saying '$1' is redundant, omit it"];
