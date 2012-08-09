@@ -6,7 +6,6 @@ use warnings;
 use Log::Any '$log';
 use SHARYANTO::Package::Util qw(list_package_contents);
 use Perinci::Sub::DepChecker qw(check_deps);
-use Perinci::Sub::dep::pm;
 
 use Exporter;
 our @ISA = qw(Exporter);
