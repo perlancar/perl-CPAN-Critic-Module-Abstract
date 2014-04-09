@@ -121,6 +121,8 @@ declare_policy
             [409, "Template from h2xs '$1'"];
         } elsif ($ab =~ /^(The great new )\w+(::\w+)*/i) {
             [409, "Template from module-starter '$1'"];
+        } elsif ($ab =~ /^\b(blah blah)\b/i) {
+            [409, "Looks like a template"];
         } else {
             [200];
         }
