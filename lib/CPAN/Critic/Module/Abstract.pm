@@ -310,6 +310,8 @@ sub critique_cpan_module_abstract {
 1;
 # ABSTRACT: Critic CPAN module abstract
 
+=for Pod::Coverage ^(.*)$
+
 =head1 SYNOPSIS
 
  % critic-cpan-module-abstract 'Perl extension for blah blah blah'
