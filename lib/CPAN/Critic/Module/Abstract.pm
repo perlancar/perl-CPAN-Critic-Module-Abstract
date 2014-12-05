@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 use Log::Any '$log';
-use SHARYANTO::Package::Util qw(list_package_contents);
+use Package::MoreUtil qw(list_package_contents);
 use Perinci::Sub::DepChecker qw(check_deps);
 
 use Exporter;
