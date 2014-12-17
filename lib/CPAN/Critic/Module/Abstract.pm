@@ -1,5 +1,8 @@
 package CPAN::Critic::Module::Abstract;
 
+# DATE
+# VERSION
+
 use 5.010;
 use strict;
 use warnings;
@@ -13,8 +16,6 @@ our @EXPORT_OK = qw(
                        critique_cpan_module_abstract
                        declare_policy
                );
-
-# VERSION
 
 our %PROFILES;
 our %SPEC;
@@ -250,6 +251,7 @@ $PROFILES{default} = $PROFILES{all};
 
 $SPEC{critique_cpan_module_abstract} = {
     v => 1.1,
+    summary => 'Critic CPAN module abstract',
     args => {
         abstract => {
             schema => 'str*',
@@ -308,7 +310,7 @@ sub critique_cpan_module_abstract {
 }
 
 1;
-# ABSTRACT: Critic CPAN module abstract
+# ABSTRACT:
 
 =for Pod::Coverage ^(.*)$
 
