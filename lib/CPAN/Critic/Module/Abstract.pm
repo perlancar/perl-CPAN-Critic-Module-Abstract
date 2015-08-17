@@ -6,7 +6,8 @@ package CPAN::Critic::Module::Abstract;
 use 5.010;
 use strict;
 use warnings;
-use Log::Any '$log';
+use Log::Any::IfLOG '$log';
+
 use Package::MoreUtil qw(list_package_contents);
 use Perinci::Sub::DepChecker qw(check_deps);
 
