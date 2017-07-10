@@ -6,7 +6,7 @@ package CPAN::Critic::Module::Abstract;
 use 5.010;
 use strict;
 use warnings;
-use Log::Any::IfLOG '$log';
+use Log::ger;
 
 use Package::MoreUtil qw(list_package_contents);
 use Perinci::Sub::DepChecker qw(check_deps);
@@ -190,7 +190,7 @@ declare_policy
         return [412, "Empty result from langof"] unless keys(%langs);
         my @langs = sort { $langs{$b}<=>$langs{$a} } keys %langs;
         my $confidence = Lingua::Identify::confidence(%langs);
-        $log->tracef(
+        log_trace(
             "Lingua::Identify result: langof=%s, langs=%s, confidence=%s",
             \%langs, \@langs, $confidence);
         if ($langs[0] ne 'en') {
@@ -277,12 +277,12 @@ sub critique_cpan_module_abstract {
     my $pr = $PROFILES{$profile} or return [400, "No such profile '$profile'"];
 
     my @res;
-    $log->tracef("Running critic profile %s on abstract %s ...",
+    log_trace("Running critic profile %s on abstract %s ...",
                  $profile, $abstract);
     my $pass;
     my $stash = {};
     for my $pol0 (@{ $pr->{policies} }) {
-        $log->tracef("Running policy %s ...", $pol0);
+        log_trace("Running policy %s ...", $pol0);
         my $pol = ref($pol0) eq 'HASH' ? %$pol0 : {name=>$pol0};
         my $spec = $SPEC{"policy_$pol->{name}"} or
             return [400, "No such policy $pol->{name}"];
@@ -294,7 +294,7 @@ sub critique_cpan_module_abstract {
         no strict 'refs';
         my $code = \&{__PACKAGE__ . "::policy_$pol->{name}"};
         my $res = $code->(abstract=>$abstract, stash=>$stash); # XXX args
-        $log->tracef("Result from policy %s: %s", $pol->{name}, $res);
+        log_trace("Result from policy %s: %s", $pol->{name}, $res);
         if ($res->[0] == 409) {
             my $severity = $spec->{"_cpancritic.severity"};
             $pass = 0 if $severity >= 5;
