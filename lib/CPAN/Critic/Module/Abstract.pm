@@ -8,7 +8,7 @@ use strict;
 use warnings;
 use Log::ger;
 
-use Package::MoreUtil qw(list_package_contents);
+use Package::Stash;
 use Perinci::Sub::DepChecker qw(check_deps);
 
 use Exporter;
@@ -243,7 +243,7 @@ declare_policy
 $PROFILES{all} = {
     policies => [],
 };
-for (keys %{ { list_package_contents(__PACKAGE__) } }) {
+for (Package::Stash->new(__PACKAGE__)->list_all_symbols("CODE")) {
     next unless /^policy_(.+)/;
     push @{$PROFILES{all}{policies}}, $1;
 }
