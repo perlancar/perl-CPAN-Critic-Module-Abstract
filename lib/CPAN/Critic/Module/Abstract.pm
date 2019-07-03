@@ -325,6 +325,8 @@ sub critique_cpan_module_abstract {
 
 =head1 DESCRIPTION
 
+B<STATUS:> This module is deprecated in favor of L<Module::Abstract::Cwalitee>.
+
 This is a proof-of-concept module to critic CPAN module abstract.
 
 Dist::Zilla plugin coming shortly.
