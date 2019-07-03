@@ -311,7 +311,7 @@ sub critique_cpan_module_abstract {
 }
 
 1;
-# ABSTRACT:
+# ABSTRACT: (DEPRECATED) Critic CPAN module abstract
 
 =for Pod::Coverage ^(.*)$
 
