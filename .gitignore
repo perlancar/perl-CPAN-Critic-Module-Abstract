@@ -2,3 +2,4 @@ CPAN-Critic-Module-Abstract-*
 .build
 *~
 nytprof*
+.DS_Store
